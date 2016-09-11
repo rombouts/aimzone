@@ -1,0 +1,24 @@
+body {
+  background-color: #20222D;
+}
+p {
+  color: #E3E3E3;
+}
+#footer {
+  color: #F3450F;
+}
+h1 {
+  color: #FF7518;
+  text-align: center;
+  font-size: 50px;
+  margin-top: 0px;
+  margin-bottom: 5px;
+}
+h2 {
+  color: #1EAEDB;
+  font-size: 30px;
+  margin-top: 15px;
+}
+a {
+  text-decoration: none;
+}

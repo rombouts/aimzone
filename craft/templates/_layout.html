@@ -1,0 +1,52 @@
+{#
+ # Layout template
+ # ---------------
+ #
+ # This template defines your site’s global layout. It can be
+ # “extended” by other templates to fill in the gaps.
+ #
+ # See Twig’s Template Inheritance documentation for more details:
+ # http://twig.sensiolabs.org/doc/templates.html#template-inheritance
+ #}
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+	<meta charset="utf-8" />
+	<title>{% if title is defined %}{{ title }} - {% endif %}{{ siteName }}</title>
+	<link rel="home" href="{{ siteUrl }}" />
+	<link rel="stylesheet" type="text/css" href="/style/skeleton.css">
+	<link rel="stylesheet" type="text/css" href="/style/normalize.css">
+  <link rel="stylesheet" type="text/css" href="/style/stylesheet.css">
+</head>
+
+<body>
+  	<div class="container">
+      <div class="row">
+        <div class="sixteen columns">
+      		<header id="header">
+      			<h2><a href="{{ siteUrl }}">{{ siteName }}</a></h2>
+
+      			<nav>
+      				<ul>
+      					<a href="{{ url('nieuws') }}" {% if craft.request.firstSegment == 'news' %}class="active"{% endif %}>News</a>
+      				</ul>
+      			</nav>
+      		</header>
+        </div>
+
+      		<main id="content" role="main">
+      			{% block content %}
+      				<p>If you see me, you haven’t set your <code>{% verbatim %}{% block content %}…{% endblock %}{% endverbatim %}</code> yet.</p>
+      				<p>See Twig’s <a href="http://twig.sensiolabs.org/doc/templates.html#template-inheritance">Template Inheritance</a> documentation for an explanation.</p>
+      			{% endblock %}
+      		</main>
+        <div class="sixteen columns">
+      		<footer id="footer">
+      			Copyright {{ now.year }} {{ craft.request.serverName | ucfirst }}. All rights reserved  •  Built with <a href="http://craftcms.com">Craft</a>
+      		</footer>
+        </div>
+      </div>
+  	</div>
+</body>
+</html>
